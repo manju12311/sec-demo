@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <tittle>to do list</tittle>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   </head>
+   <style>
+             body{
+                 text-align: center;
+                    background-color: lightgrey;
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 50px;
+                    }
+            h1{
+                color: rgb(71, 83, 241);
+                }
+            ul{
+                list-style-type: none;
+                padding: 0;
+                }
+            li{
+                background-color: rgb(212, 220, 245);
+                margin: 5px 0;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+            input[type="text"]{
+                padding: 10px;
+                width: 200px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                }
+            button{
+                padding: 10px 15px;
+                background-color: darkblue;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                }
+                </style>
+    <body>
+     <h1> To do list</h1>
+     <br><br>
+     <h2>test all your task to complete </h2>
+     <ul id="list">
+        <li>task 1</li>
+        <li>task 2</li>
+        <li>task 3</li>            
+    </ul>
+    <input type="text" id="myInput" placeholder="Add a new task">
+    <button id="add">Add Task</button>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $("#add").click(function(){
+                let task = $("#myInput").val();
+                if(task){
+                    $("#list").append("<li>" + task + "</li>");
+                    $("#myInput").val("");
+                }
+            });
+        });
+    </script>   
+</html>

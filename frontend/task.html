@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title> Adding new Task</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <h1> step by step</h1>
+        <br><br>
+        <h2> performing tasks</h2>
+        <ul id="list">
+            <li> Task 1</li>
+            <li> Task 2</li>
+            <li> Task 3</li>
+        </ul>
+        <input type="text" id="myInput" placeholder="Add a newtask">
+        <button id="add"> Add Task</button>
+        </body>
+        <script>
+            $(document).ready(function(){
+                $("#add").click(function(){
+                let task =$("myInput").val();
+                if(task){
+                    $("#list").append("<li>"+ task +"</li>");
+                    $("#myInput").val("");
+                }
+            });
+        });
+</script>
+</html>

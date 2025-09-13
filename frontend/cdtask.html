@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>To do List</title>
+</head>
+  <style></* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Main title */
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+h2 {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Task list */
+#taskList {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+}
+
+#taskList li {
+  background: #fff;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+}
+
+/* Input box */
+#taskInput {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+#taskInput:focus {
+  border-color: #007bff;
+}
+
+/* Buttons */
+button {
+  padding: 6px 12px;
+  margin-left: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Add Task button */
+#addTask {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+}
+
+#addTask:hover {
+  background-color: #218838;
+}
+
+/* Complete button */
+#done {
+  background-color: #007bff;
+  color: white;
+}
+
+#done:hover {
+  background-color: #0056b3;
+}
+
+/* Delete button */
+.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete:hover {
+  background-color: #a71d2a;
+}
+
+/* Completed tasks (when clicked) */
+.completed {
+  background-color: #fff3cd !important;
+  text-decoration: line-through;
+  color: #555;
+}
+</style>
+</head>
+<body>
+    <H1> To Do List </H1>
+    <br><br>
+    <h2>These are your tasks to complete</h2>
+    <ul id="taskList">
+      <li>Sample Task 1 <button id='done'>Complete</button> <button class='delete'>Delete</button></li>
+      <li>Sample Task 2 <button id='done'>Complete</button> <button class='delete'>Delete</button></li>
+    </ul>
+    <input type="text" id="taskInput" placeholder="Enter new task">
+    <button id="addTask">Add Task</button>
+</body>
+</html>
+<script>
+$(document).ready(function(){
+   
+    $("#addTask").click(function(){
+  let task = $("#taskInput").val();
+  if(task !== ""){
+    $("#taskList").append(
+      `<li>${task}
+        <button id='done'>Complete</button>
+        <button class='delete'>Delete</button>
+      </li>`
+    );
+    $("#taskInput").val("");
+  }
+});
+
+// Mark as complete
+$("#taskList").on("click", "#done", function(){
+  $(this).parent().css("background-color","yellow");
+});
+
+// Delete
+$("#taskList").on("click", ".delete", function(){
+  $(this).parent().remove();
+});
+
+});
+</script>
