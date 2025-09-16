@@ -13,3 +13,9 @@ function App(){
       </div>)
 }
 export default App
+function add (para){
+  return(<>
+  <h2>hi this jen</h2>
+  <Temp name="vishnu" age="99"></>
+  </>)
+}
